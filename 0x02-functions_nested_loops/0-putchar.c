@@ -1,7 +1,21 @@
-#include <unistd.h>
+#include "main.c"
 
-int main(void) {
-    char str[] = "_putchar\n";
-    write(1, str, sizeof(str) - 1);
-    return (0);
+/**
+ * main - Entry point
+ *
+ * Return: Always returns 0
+ *
+ */
+int main(void)
+{
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
+	return (0);
 }
