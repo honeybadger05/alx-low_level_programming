@@ -1,26 +1,57 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <ctype.h>
 /**
- * main - it all starts here
- * @argc: the number of arguments
- * @argv: array of pointers to arguments
- *
- * Return: Always 0
- * */
-int main(int argc, char *argv[])
+ * StringCheck - checks string
+ * @s: string to check
+ * Return: something
+ */
+int StringCheck(char *s)
 {
-	int sum = 0;
-	char *c;
-	
-	while (--argc)
+	int i = 0;
+
+	for (; s[i] != '\0'; i++)
 	{
-		for (c = argv[argc]; *c; c++)
-			if (*c < '0' || *c > '9')
-				return (printf("Error\n"), 1);
-		sum += atoi(argv[argc]);
+		if (!isdigit(s[i]))
+		{
+			return (0);
+		}
 	}
-	printf("%d\n" , sum),
+	return (1);
+}
+/**
+ * main - main function
+ * @argc: argumentc
+ * @argv: vector of arguments
+ *Return: always 0
+ */
+int main(int argc, char  *argv[])
+{
+	int i;
+	int result = 0;
+
+	if (argc > 1)
+	{
+		for (i = 1; i < argc; i++)
+		{
+			if (StringCheck(argv[i]))
+			{
+				result += atoi(argv[i]);
+			}
+			else
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+		printf("%d\n", result);
 		return (0);
+	}
+	else
+	{
+		printf("%d\n", 0);
+		return (1);
+	}
+
 }
