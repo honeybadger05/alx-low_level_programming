@@ -5,7 +5,7 @@
 /**
  * StringCheck - checks string
  * @s: string to check
- * Return: something
+ * Return: boolean
  */
 int StringCheck(char *s)
 {
