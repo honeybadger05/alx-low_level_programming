@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * reverse_listint - reverses a listint_t linked list.
  * @head: pointer to the first node
@@ -6,19 +8,17 @@
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *node = NULL, *next = NULL;
+	listint_t *p, *q;
 
-	if (!head || *!head)
+	if (head == NULL || *head == NULL)
 		return (NULL);
-
-	node = *head;
-	*head = NULL;
-	while (node)
-	{
-		next = node->next;
-		node->next = *head;
-		*head = node;
-		node = next;
-	}
+	p = *head;
+	if (p->next == NULL)
+		return (*head);
+	q = *head;
+	*head = (*head)->next;
+	reverse_listint(head);
+	q->next->next = p;
+	q->next = NULL;
 	return (*head);
 }
