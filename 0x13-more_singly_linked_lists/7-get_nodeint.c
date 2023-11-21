@@ -7,10 +7,17 @@
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	listint_t *node;
-	unsigned int n;
+	unsigned int count = 0;
+	listint_t *tmp;
 
-	for (node = head, n = 0; node && n < index; node->next, n++)
-		;
-	return (node);
+	tmp = head;
+	while (count != index && tmp != NULL)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+
+	if (count != index)
+		return (NULL);
+	return (tmp);
 }
