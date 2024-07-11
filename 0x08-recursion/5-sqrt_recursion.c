@@ -23,6 +23,5 @@ int square_root(int n, int y)
 int _sqrt_recursion(int n)
 {
 	int a = 1;
-	
 	return (square_root(a, n));
 }
